@@ -50,8 +50,11 @@ module tb_i2c;
         rst_n = 0;
         #10 rst_n = 1;
 
-//------------------------------------------------------------------------------------------------------------------
-// Test Case 1: Start, Write, Stop, and Acknowledgment
+/*------------------------------------------------------------------------------------------------------------------
+Test Case 1: Start, Write, Stop, and Acknowledgment
+This test case initiates communication with a start condition, writes data from the master to the slave, generates a stop condition, and ensures acknowledgment from the slave.
+*/
+        
 start = 0;
 stop = 0;
 write = 0;
@@ -80,8 +83,11 @@ stop = 1;
 assert(ack === 1) else $display("Test Case 1 Failed: No acknowledgment from the slave.");
 
       
-//------------------------------------------------------------------------------------------------------------------
-// Test Case 2: Start, Stop, and No Data
+/*------------------------------------------------------------------------------------------------------------------
+**Test Case 2: Start, Stop, and No Data**
+This test case initiates communication with a start condition, immediately generates a stop condition without sending data, and verifies the absence of acknowledgment.
+*/
+        
 start = 0;
 stop = 0;
 scl = 1;
@@ -97,8 +103,12 @@ stop = 1;
 // Verify no acknowledgment from the slave
 assert(ack === 0) else $display("Test Case 2 Failed: Unexpected acknowledgment from the slave.");
 
-//------------------------------------------------------------------------------------------------------------------
-// Test Case 3: Start, Write, Read, Stop, and Acknowledgment
+        
+/*------------------------------------------------------------------------------------------------------------------
+Test Case 3: Start, Write, Read, Stop, and Acknowledgment
+This test case initiates communication with a start condition, writes data from the master to the slave, generates a repeated start condition for reading, reads data from the slave, generates a stop condition, and ensures acknowledgment from the slave.
+*/
+        
 start = 0;
 stop = 0;
 write = 0;
@@ -137,8 +147,12 @@ stop = 1;
 // Verify acknowledgment from the slave
 assert(ack === 1) else $display("Test Case 3 Failed: No acknowledgment from the slave.");
 
-//------------------------------------------------------------------------------------------------------------------
-// Test Case 4: Multiple Start and Stop Conditions
+        
+/*------------------------------------------------------------------------------------------------------------------
+Test Case 4: Multiple Start and Stop Conditions
+This test case initiates multiple start and stop conditions in succession, testing the ability of the I2C communication to handle repeated start and stop conditions.
+*/
+        
 start = 0;
 stop = 0;
 scl = 1;
@@ -166,9 +180,13 @@ start = 1;
 // Yet another stop condition
 stop = 1;
 #10 stop = 0;
-      
-//------------------------------------------------------------------------------------------------------------------
-// Test Case 5: Address Recognition and Data Reception
+
+        
+/*------------------------------------------------------------------------------------------------------------------
+Test Case 5: Address Recognition and Data Reception**
+This test case simulates the recognition of the slave's address by the master and the reception of data from the slave.
+*/
+        
 start = 0;
 stop = 0;
 scl = 1;
