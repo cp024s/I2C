@@ -66,8 +66,5 @@ The `I2C_Slave` module represents the I2C slave device. Key features include:
 
 ## License
 
-This code is provided under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This code is provided under the `MIT License`. See the [LICENSE](LICENSE) file for more details.
 
-## Acknowledgments
-
-- Inspiration and reference materials: 
